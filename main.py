@@ -3,6 +3,7 @@ from util.gestore_richieste import get_argomenti
 from openai import OpenAI
 
 #commit di prova
+#terzo commit
 km = EnvManager()
 
 try:
