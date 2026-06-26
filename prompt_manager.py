@@ -32,9 +32,9 @@ def genera_prompt(scheda):
     indica la miglior risposta possibile ma segnala che ci sono state problematiche
     e suggerisci possibili soluzioni
 
-    Devi restituire DUE file scaricabili come definito nella sezione output 
-    NON aggiungere commenti né prima, né dopo
-    Inserisci nella risposta SOLO le indicazioni presenti nella struttura
+    produci un json e un markdown
+    NON aggiungere alcun tipo di frase, né prima, né dopo
+    Inserisci nella risposta SOLO le indicazioni presenti nella struttura, senza altro
     '''
 
     contesto = f'''
@@ -48,10 +48,14 @@ def genera_prompt(scheda):
     '''
 
     output = '''
-    crea:
-    1. un file json scaricabile con struttura chiave-valore evidenziata nelle istruzioni
+    crea un testo con questa struttura:
+
     
-    2. un file markdown scaricabile
+        contenuto del json
+
+        $$$
+
+        contenuto del markdown
     
     '''
 
