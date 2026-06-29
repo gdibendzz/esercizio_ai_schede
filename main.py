@@ -58,7 +58,7 @@ try:
             print(data)
 
             if esito =="ERROR":
-                raise(Exception(data))
+                raise(ValueError(data))
             
             files = data.split("$$$")
 
@@ -79,6 +79,8 @@ try:
             write_log(f"{s["argomento"]}\n{s["livello"]}\n{",".join(file_names)}", "OK", "Successo")
                
 
+        except ValueError as e:
+            write_log(f"{s["argomento"]}\n{s["livello"]}\nErrore Generazione Schede", "ERROR", str(e))
         except Exception as e:
             write_log("Errore API", "ERROR", str(e))
         
