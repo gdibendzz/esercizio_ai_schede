@@ -1,5 +1,6 @@
 #file input/output
 output/
+log/
 argomenti.json
 
 # Byte-compiled / optimized / DLL files

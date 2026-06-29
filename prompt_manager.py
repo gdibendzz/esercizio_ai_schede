@@ -6,8 +6,17 @@ def genera_prompt(scheda):
     livello = scheda.livello
 
     istruzioni = f'''
-    Sei un professore di {argomento} 
+
     La lingua di riferimento è l'Italiano.
+
+    Valuta  {argomento}: 
+    se non è un ambito tematico su cui non si può costruire un corso allora  ritorna esito ERROR e in dati la frase 'Input non valido' e non fare altro
+
+    Se è un ambito tematico corretto allora procedi con le seguenti istruzioni
+
+    ISTRUZIONI
+    Sei un professore di {argomento} 
+
     Devi generare le seguenti sezioni per creare una scheda didattica:
     
     Ti fornisco le coppie di chiavi - valori separate da :
@@ -28,11 +37,8 @@ def genera_prompt(scheda):
     Fine struttura chiave-valore
 
     La risposta deve essere di almeno 5 pagine A4 standard
-    Se i dati di input non sono chiare e ben definite, 
-    indica la miglior risposta possibile ma segnala che ci sono state problematiche
-    e suggerisci possibili soluzioni
 
-    produci un json e un markdown
+    ritorna esito OK e  in dati  un json e un markdown
     NON aggiungere alcun tipo di frase, né prima, né dopo
     Inserisci nella risposta SOLO le indicazioni presenti nella struttura, senza altro
     '''
@@ -48,14 +54,22 @@ def genera_prompt(scheda):
     '''
 
     output = '''
-    crea un testo con questa struttura:
-
     
-        contenuto del json
+    crea un json con questa struttura:
 
-        $$$
 
-        contenuto del markdown
+        {
+
+        esito: esito dell'elaborazione,
+    
+        dati:
+            contenuto del json
+
+            $$$
+
+            contenuto del markdown
+
+        }
     
     '''
 
